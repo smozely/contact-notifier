@@ -1,1 +1,1 @@
-web:    java -jar target/Contact-Emailer.jar
+web:    java -jar target/contact-emailer.jar
