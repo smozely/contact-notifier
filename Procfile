@@ -1,1 +1,1 @@
-web:    java -jar target/contact-emailer.jar
+web:    java -Dserver.port=$PORT -jar target/contact-emailer.jar
