@@ -1,9 +1,9 @@
-package com.smozely.app.emailer;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+package com.smozely.app.emailer.web;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 public class ContactForm {
 
@@ -31,4 +31,5 @@ public class ContactForm {
     public String getMessage() {
         return message;
     }
+
 }

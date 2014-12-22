@@ -1,7 +1,9 @@
 package com.smozely.app.emailer
 
+import com.smozely.app.emailer.web.ContactForm
 import spock.lang.Specification
-import static org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class ContactFormTest extends Specification {
 
