@@ -4,12 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.smozely.app</groupId>
-    <artifactId>emailer</artifactId>
+    <artifactId>contact-emailer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Notifier</name>
-    <description>Notification Application exposed via a REST Service</description>
+    <description>Contact form Email Application exposed via a REST Service</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -80,6 +79,7 @@
     </properties>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
