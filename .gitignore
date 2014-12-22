@@ -4,4 +4,4 @@
 
 target
 
-test-application.properties
+config/application.properties
