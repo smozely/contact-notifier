@@ -14,8 +14,12 @@ import org.springframework.integration.annotation.Transformer;
 public class ContactEndpoint {
 
     private final AmazonSESMessageSender sender;
+
     @Value("${message.fromAddress}")
     private String emailSource;
+
+    @Value("${message.fromAddress}")
+    private String emailDestination;
 
     @Autowired
     public ContactEndpoint(AmazonSESMessageSender sender) {
@@ -26,11 +30,19 @@ public class ContactEndpoint {
     public SendEmailRequest transform(ContactForm form) {
         SendEmailRequest request = new SendEmailRequest()
                 .withSource(emailSource)
-                .withDestination(new Destination().withToAddresses(form.getEmail()))
+                .withDestination(new Destination().withToAddresses(emailDestination))
                 .withMessage(
                         new Message()
-                                .withSubject(new Content().withData(form.getSubject()))
-                                .withBody(new Body().withText(new Content().withData(form.getMessage()))));
+                                .withSubject(new Content().withData("New Contact Message From : " + form.getEmail()))
+                                .withBody(new Body().withText(
+                                        new Content().withData(
+                                                    "--- \n"
+                                                    + form.getEmail()
+                                                    + "\n---\n"
+                                                    + form.getSubject()
+                                                    + "\n---\n"
+                                                    + form.getMessage()
+                                        ))));
         return request;
     }
 
